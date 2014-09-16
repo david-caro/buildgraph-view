@@ -14,7 +14,7 @@ import java.util.List;
  * @author <a href="mailto:nicolas.deloof@gmail.com">Nicolas De Loof</a>
  */
 @Extension
-public class UpstreamCauseDonwStreamRunDeclarer extends DownStreamRunDeclarer {
+public class UpstreamCauseDownStreamRunDeclarer extends DownStreamRunDeclarer {
 
     @Override
     public List<Run> getDownStream(Run r) {

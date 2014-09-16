@@ -47,10 +47,8 @@ public class BuildExecution implements Serializable {
         this.build = build;
         this.buildIndex = buildIndex;
         this.id = "build-" + buildIndex;
-        this.buildUrl = this.build != null ? this.build.getAbsoluteUrl() : null;
         this.startTime = isStarted() ? DateFormat.getDateTimeInstance(
-                DateFormat.SHORT, DateFormat.SHORT).format(build.getTime())
-                : "";
+                DateFormat.SHORT, DateFormat.SHORT).format(build.getTime()) : "";
         this.buildName = build.getParent().getName();
         this.buildNumber = "" + build.number;
         this.iconColor = build.getIconColor();
@@ -58,7 +56,6 @@ public class BuildExecution implements Serializable {
         this.description = build.getDescription();
         this.building = build.isBuilding();
         this.durationString = build.getDurationString();
-        this.buildSummaryStatusString = build.getBuildStatusSummary().message;
     }
 
     public BuildExecution(int buildIndex) {
@@ -86,7 +83,7 @@ public class BuildExecution implements Serializable {
     }
 
     public String getbuildSummaryStatusString() {
-        return buildSummaryStatusString;
+        return this.build != null? this.build.getBuildStatusSummary().message : null;
     }
 
     public String getId() {
@@ -94,7 +91,7 @@ public class BuildExecution implements Serializable {
     }
 
     public String getBuildUrl() {
-        return buildUrl;
+        return this.build != null ? this.build.getAbsoluteUrl() : null;
     }
 
     public String getStartTime() {

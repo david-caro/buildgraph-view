@@ -69,7 +69,8 @@ public class BuildGraph implements Action {
 
     private void computeGraphFrom(BuildExecution b) throws ExecutionException, InterruptedException, IOException {
         Run run = b.getBuild();
-        for (DownStreamRunDeclarer declarer : DownStreamRunDeclarer.all()) {
+        List<DownStreamRunDeclarer> declarers = DownStreamRunDeclarer.all();
+        for (DownStreamRunDeclarer declarer : declarers) {
             List<Run> runs = declarer.getDownStream(run);
             for (Run r : runs) {
                 BuildExecution next = getExecution(r);

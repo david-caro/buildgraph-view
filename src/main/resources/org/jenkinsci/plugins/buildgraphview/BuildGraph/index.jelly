@@ -60,7 +60,7 @@
     </style>
 
     <j:set var="graph" value="${it.graph}"/>
-    <j:if test="${not empty graph.outgoingEdgesOf(it.start)}">
+    <j:if test="${not empty graph.outgoingEdgesOf(it.start) or empty graph.outgoingEdgesOf(it.start)}">
 
         <j:forEach var="vertex" items="${graph.vertexSet()}">
             <st:include page="build-step.jelly" it="${vertex}"/>
